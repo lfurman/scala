@@ -30,6 +30,7 @@ object IndexGenerator extends App {
   saveProviderAttributes(saveProviderExperience, "provider_experience.txt")
   saveProviderAttributes(saveProviderLocation, "provider_location.txt")
   saveProviderAttributes(saveProviderHospitals, "provider_hospitals.txt")
+  saveProviderAttributes(saveProviderLanguages, "provider_languages.txt")
 
   def saveProviderAttributes(f: (Provider, PrintWriter) => Unit, filePath: String) = {
     new File(filePath).delete()

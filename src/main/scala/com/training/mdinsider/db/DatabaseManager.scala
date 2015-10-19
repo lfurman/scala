@@ -66,4 +66,19 @@ object DatabaseManager {
     fileWriter.append("\n")
     fileWriter.flush()
   }
+
+  def saveProviderLanguages(provider: Provider, fileWriter: PrintWriter) = {
+    provider.practiceLocations.foreach(
+      practiceLocation => {
+        practiceLocation.languages.fold(List.empty[String])(identity).foreach(
+          language => {
+            fileWriter.append(List(provider.npid, language).mkString("|"))
+            fileWriter.flush()
+            fileWriter.append("\n")
+            fileWriter.flush()
+          }
+        )
+      }
+    )
+  }
 }

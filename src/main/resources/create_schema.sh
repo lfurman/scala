@@ -36,12 +36,24 @@ CREATE TABLE IF NOT EXISTS provider_hospitals
 	phone VARCHAR(50)
 );
 
+DROP TABLE IF EXISTS provider_languages;
+CREATE TABLE IF NOT EXISTS provider_languages
+(
+	npid VARCHAR(10),
+	language VARCHAR(20)
+);
+
 ALTER TABLE provider_location ENGINE = MyISAM;
 ALTER TABLE provider_hospitals ENGINE = MyISAM;
 ALTER TABLE provider_experience ENGINE = MyISAM;
 
 ALTER TABLE provider_location ADD PRIMARY KEY (npid);
 ALTER TABLE provider_hospitals ADD PRIMARY KEY (npid);
+ALTER TABLE provider_hospitals ADD INDEX idx_hosp (name);
+
+ALTER TABLE provider_languages ADD INDEX idx_lang (language);
+ALTER TABLE provider_languages ADD INDEX (npid, language);
+
 ALTER TABLE provider_experience ADD INDEX idx_exp (npid, group_type, group_code);
 ALTER TABLE provider_experience ADD INDEX idx_grp (group_type, group_code);
 ALTER TABLE provider_experience ADD INDEX idx_npid (npid);
