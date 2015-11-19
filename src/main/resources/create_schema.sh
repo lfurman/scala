@@ -56,7 +56,10 @@ ALTER TABLE provider_languages ADD INDEX (npid, language);
 
 ALTER TABLE provider_experience ADD INDEX idx_exp (npid, group_type, group_code);
 ALTER TABLE provider_experience ADD INDEX idx_grp (group_type, group_code);
+ALTER TABLE provider_experience ADD INDEX idx_grp_type (group_type);
+ALTER TABLE provider_experience ADD INDEX idx_grp_code (group_code);
 ALTER TABLE provider_experience ADD INDEX idx_npid (npid);
 ALTER TABLE provider_experience ADD INDEX idx_score (overall_score);
+ALTER TABLE provider_experience ADD INDEX idx_npid_score (npid, overall_score);
 
 "

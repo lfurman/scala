@@ -72,6 +72,7 @@ object ProviderExperienceDB extends SQLSyntaxSupport[ProviderExperience] {
       medianScore = rs.doubleOpt(pexp.medianScore),
       backgroundScore = rs.doubleOpt(pexp.backgroundScore),
       experienceScore = rs.doubleOpt(pexp.experienceScore),
+      losPercentile = rs.doubleOpt(pexp.losPercentile),
       topPercentile = rs.booleanOpt(pexp.topPercentile)
     )
   }

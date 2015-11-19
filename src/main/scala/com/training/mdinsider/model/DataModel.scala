@@ -4,7 +4,7 @@ package com.training.mdinsider.model
  * Created by: Leonid Furman
  * Date:       10/11/15.
  */
-case class ScoreComponents(median: Double, overall: Double, background: Double, experience: Double, topPercentile: Boolean)
+case class ScoreComponents(median: Double, overall: Double, background: Double, experience: Double, losPercentile: Option[Double], topPercentile: Boolean)
 
 case class CcsGroup(code: String, scoreComponents: Option[ScoreComponents])
 
@@ -54,6 +54,7 @@ case class ProviderExperience(
   medianScore: Option[Double],
   backgroundScore: Option[Double],
   experienceScore: Option[Double],
+  losPercentile: Option[Double],
   topPercentile: Option[Boolean]
 )
 

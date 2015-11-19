@@ -14,6 +14,7 @@ object DataModelJson {
         "overall" -> scoreComponents.overall,
         "background" -> scoreComponents.overall,
         "experience" -> scoreComponents.experience,
+        "losPercentile" -> scoreComponents.losPercentile,
         "topPercentile" -> (if (scoreComponents.topPercentile) 1 else 0)
       )
     }
@@ -25,6 +26,7 @@ object DataModelJson {
           (json \ "overall").as[Double],
           (json \ "background").as[Double],
           (json \ "experience").as[Double],
+          (json \ "losPercentile").asOpt[Double],
           (json \ "topPercentile").as[Int].equals(1)
         )
       )
